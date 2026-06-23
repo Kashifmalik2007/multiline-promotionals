@@ -1,0 +1,189 @@
+<%- include('partials/header') %>
+
+<!-- HERO SECTION -->
+<section class="hero">
+  <div class="container hero-container">
+    <div class="hero-content">
+      <div class="hero-badges">
+        <span class="badge"><i class="fas fa-industry"></i> Manufacturer</span>
+        <span class="badge"><i class="fas fa-briefcase"></i> Corporate & Promotional Products Supplier</span>
+        <span class="badge rating"><i class="fas fa-star"></i> 5.0 Rating</span>
+      </div>
+      <h1>Brand Identity</h1>
+      <p>High-quality promotional products designed for corporate excellence. Streamlined bulk ordering, customization, and reliable delivery for your business.</p>
+      <div class="hero-buttons">
+        <a href="/catalog" class="btn-primary">Browse Catalog</a>
+        <a href="/contact" class="btn-outline">Contact Us</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <div class="hero-img-placeholder">
+        <div class="hero-boxes">
+          <div class="box box1"></div>
+          <div class="box box2"></div>
+          <div class="box box3"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED COLLECTION -->
+<section class="section featured-section">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <h2>Featured Collection</h2>
+        <p>Discover our most popular items for corporate gifting and brand promotion.</p>
+      </div>
+      <a href="/catalog" class="view-all">View All Products <i class="fas fa-arrow-right"></i></a>
+    </div>
+
+    <div class="products-grid">
+      <% products.forEach(product => { %>
+      <div class="product-card">
+        <div class="product-img">
+          <% if (product.featured) { %><span class="badge-featured">FEATURED</span><% } %>
+          <% if (product.image && product.image !== '/images/placeholder.jpg') { %>
+            <img src="<%= product.image %>" alt="<%= product.name %>" loading="lazy">
+          <% } else { %>
+            <div class="img-placeholder"><i class="fas fa-image"></i></div>
+          <% } %>
+        </div>
+        <div class="product-info">
+          <div class="product-meta">
+            <span class="category"><%= product.category %></span>
+            <span class="moq">MOQ: <%= product.moq %></span>
+          </div>
+          <h3><%= product.name %></h3>
+          <p><%= product.description.substring(0, 80) %>...</p>
+          <p class="contact-note"><i class="fab fa-whatsapp"></i> For prices and details, <a href="https://wa.me/923004303949" target="_blank">please contact us on WhatsApp</a> or <a href="/contact">Email</a>.</p>
+          <a href="/product/<%= product.id %>" class="btn-details">View Details <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <% }) %>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES SECTION -->
+<section class="section services-section">
+  <div class="container">
+    <div class="section-title-center">
+      <h2>OUR SERVICE</h2>
+      <p class="subtitle-orange">Crafting Your Brand's Story</p>
+      <div class="title-line"></div>
+      <p>We offer a comprehensive range of custom corporate and promotional products designed to meet diverse branding needs. From elegant awards to practical giveaways, our services are tailored to enhance your corporate identity and leave a memorable mark on your audience.</p>
+    </div>
+    <div class="service-cards">
+      <div class="service-card">
+        <i class="fas fa-trophy"></i>
+        <span>Premium Awards & Metal Crafts</span>
+      </div>
+      <div class="service-card">
+        <i class="fas fa-tree"></i>
+        <span>Distinguished Wooden Creations</span>
+      </div>
+      <div class="service-card">
+        <i class="fas fa-briefcase"></i>
+        <span>Sophisticated Leather Items</span>
+      </div>
+      <div class="service-card">
+        <i class="fas fa-tshirt"></i>
+        <span>Custom Clothing & Fabric Goods</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="section why-section">
+  <div class="container why-container">
+    <div class="why-list">
+      <div class="why-item">
+        <span class="why-num">1</span>
+        <div>
+          <h4>Uncompromising Quality</h4>
+          <p>Only the best materials and craftsmanship are used in every product.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <span class="why-num">2</span>
+        <div>
+          <h4>Timely Delivery</h4>
+          <p>We ensure your orders arrive on schedule, every time.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <span class="why-num">3</span>
+        <div>
+          <h4>Affordable Pricing</h4>
+          <p>Premium products without the premium price tag.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <span class="why-num">4</span>
+        <div>
+          <h4>Extensive Customization</h4>
+          <p>Tailor every detail to perfectly match your brand's aesthetic.</p>
+        </div>
+      </div>
+    </div>
+    <div class="why-cta-box">
+      <p>Partner with Multiline Promotional for branding solutions that combine decades of experience with modern innovation.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTS -->
+<section class="section clients-section">
+  <div class="container">
+    <h2 class="clients-title">OUR CLIENTS</h2>
+    <div class="clients-grid">
+      <div class="client-item">Pakistan Army</div>
+      <div class="client-item">Pakistan Air Force</div>
+      <div class="client-item">Pakistan Senate</div>
+      <div class="client-item">Rotary International</div>
+      <div class="client-item">LUMS</div>
+      <div class="client-item">Punjab University</div>
+      <div class="client-item">UCP</div>
+      <div class="client-item">NSPP</div>
+      <div class="client-item">UMT</div>
+      <div class="client-item">PAEC</div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST PILLARS -->
+<section class="section trust-section">
+  <div class="container">
+    <div class="trust-grid">
+      <div class="trust-item">
+        <i class="fas fa-cube"></i>
+        <h4>Premium Quality</h4>
+        <p>Curated selection of high-end products that represent your brand with dignity.</p>
+      </div>
+      <div class="trust-item">
+        <i class="fas fa-truck"></i>
+        <h4>Reliable Logistics</h4>
+        <p>Trackable shipping and guaranteed delivery dates for your important events.</p>
+      </div>
+      <div class="trust-item">
+        <i class="fas fa-shield-alt"></i>
+        <h4>Secure Ordering</h4>
+        <p>Enterprise-grade security for bulk orders and payment processing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA SECTION -->
+<section class="cta-section">
+  <div class="container text-center">
+    <h2>Ready to make an impression?</h2>
+    <p>Get a custom quote for your bulk order today. Our team will help you choose the perfect products for your brand.</p>
+    <a href="/contact" class="btn-primary">Contact Us for Quote</a>
+  </div>
+</section>
+
+<%- include('partials/footer') %>

@@ -1,0 +1,55 @@
+// Mobile menu toggle
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+
+if (hamburger && mobileMenu) {
+  hamburger.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+  });
+
+  // Close on outside click
+  document.addEventListener('click', (e) => {
+    if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+      mobileMenu.classList.remove('open');
+    }
+  });
+}
+
+// Auto-dismiss flash messages
+const flashes = document.querySelectorAll('.flash-success, .flash-error');
+flashes.forEach(el => {
+  setTimeout(() => {
+    el.style.opacity = '0';
+    el.style.transition = 'opacity 0.5s';
+    setTimeout(() => el.remove(), 500);
+  }, 4000);
+});
+
+// Navbar scroll effect
+const navbar = document.querySelector('.navbar');
+if (navbar) {
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 10) {
+      navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.4)';
+    } else {
+      navbar.style.boxShadow = 'none';
+    }
+  });
+}
+
+// Smooth reveal on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.product-card, .service-card, .trust-item, .client-item').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(20px)';
+  el.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+  observer.observe(el);
+});

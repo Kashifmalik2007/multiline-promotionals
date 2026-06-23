@@ -1,0 +1,129 @@
+<%- include('partials/header') %>
+
+<section class="page-hero">
+  <div class="container">
+    <h1>About Us</h1>
+    <p>Your trusted partner for premium corporate and promotional products</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-content">
+        <h2>Who We Are</h2>
+        <p>Multiline Promotional is a leading manufacturer and supplier of corporate and promotional products based in Lahore, Pakistan. With decades of combined experience and a 5.0 star rating, we have earned the trust of some of Pakistan's most prestigious institutions.</p>
+        <p>From the Pakistan Army and Pakistan Air Force to top universities like LUMS and Punjab University, our clients trust us to deliver quality products that represent their brand with dignity and professionalism.</p>
+        <p>We specialize in bulk ordering, custom branding, and on-time delivery — so you can focus on your events and campaigns while we handle the merchandise.</p>
+        <div class="stats-row">
+          <div class="stat-item">
+            <h3>500+</h3>
+            <p>Products Delivered</p>
+          </div>
+          <div class="stat-item">
+            <h3>10+</h3>
+            <p>Premium Clients</p>
+          </div>
+          <div class="stat-item">
+            <h3>5.0</h3>
+            <p>Star Rating</p>
+          </div>
+        </div>
+      </div>
+      <div class="about-img-box">
+        <div class="about-img-card">
+          <i class="fas fa-award" style="font-size:4rem;color:#f5811e;"></i>
+          <h3>Trusted Manufacturer</h3>
+          <p>Premium quality products crafted with precision and expertise.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:#f8f9fa;">
+  <div class="container">
+    <div class="section-title-center">
+      <h2>OUR SERVICE</h2>
+      <p class="subtitle-orange">Crafting Your Brand's Story</p>
+      <div class="title-line"></div>
+      <p>We offer a comprehensive range of custom corporate and promotional products designed to meet diverse branding needs.</p>
+    </div>
+    <div class="service-cards">
+      <div class="service-card">
+        <i class="fas fa-trophy"></i>
+        <span>Premium Awards & Metal Crafts</span>
+      </div>
+      <div class="service-card">
+        <i class="fas fa-tree"></i>
+        <span>Distinguished Wooden Creations</span>
+      </div>
+      <div class="service-card">
+        <i class="fas fa-briefcase"></i>
+        <span>Sophisticated Leather Items</span>
+      </div>
+      <div class="service-card">
+        <i class="fas fa-tshirt"></i>
+        <span>Custom Clothing & Fabric Goods</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section why-section">
+  <div class="container why-container">
+    <div class="why-list">
+      <div class="why-item">
+        <span class="why-num">1</span>
+        <div>
+          <h4>Uncompromising Quality</h4>
+          <p>Only the best materials and craftsmanship are used in every product.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <span class="why-num">2</span>
+        <div>
+          <h4>Timely Delivery</h4>
+          <p>We ensure your orders arrive on schedule, every time.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <span class="why-num">3</span>
+        <div>
+          <h4>Affordable Pricing</h4>
+          <p>Premium products without the premium price tag.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <span class="why-num">4</span>
+        <div>
+          <h4>Extensive Customization</h4>
+          <p>Tailor every detail to perfectly match your brand's aesthetic.</p>
+        </div>
+      </div>
+    </div>
+    <div class="why-cta-box">
+      <p>Partner with Multiline Promotional for branding solutions that combine decades of experience with modern innovation.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section clients-section">
+  <div class="container">
+    <h2 class="clients-title">OUR CLIENTS</h2>
+    <div class="clients-grid">
+      <div class="client-item">Pakistan Army</div>
+      <div class="client-item">Pakistan Air Force</div>
+      <div class="client-item">Pakistan Senate</div>
+      <div class="client-item">Rotary International</div>
+      <div class="client-item">LUMS</div>
+      <div class="client-item">Punjab University</div>
+      <div class="client-item">UCP</div>
+      <div class="client-item">NSPP</div>
+      <div class="client-item">UMT</div>
+      <div class="client-item">PAEC</div>
+    </div>
+  </div>
+</section>
+
+<%- include('partials/footer') %>

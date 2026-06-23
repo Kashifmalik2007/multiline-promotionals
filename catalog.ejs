@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %> | Multiline Promotional</title>
+  <meta name="description" content="Multiline Promotional - Corporate & Promotional Giveaways. Premium awards, apparel, office supplies and customized promotional products in Pakistan.">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="container nav-container">
+    <a href="/" class="logo">
+      <img src="/images/logo.png" alt="Multiline Promotional" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+      <div class="logo-text" style="display:none">
+        <span class="logo-main">MULTILINE PROMOTIONAL</span>
+        <span class="logo-sub">CORPORATE & PROMOTIONAL GIVEAWAYS</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="/" class="<%= page==='home' ? 'active' : '' %>">Home</a>
+      <a href="/catalog" class="<%= page==='catalog' ? 'active' : '' %>">Catalog</a>
+      <a href="/about" class="<%= page==='about' ? 'active' : '' %>">About Us</a>
+      <a href="/contact" class="<%= page==='contact' ? 'active' : '' %>">Contact</a>
+    </div>
+    <div class="nav-actions">
+      <a href="/contact" class="btn-quote">Get a Quote</a>
+      <a href="/admin/login" class="btn-login"><i class="fas fa-user"></i> Login</a>
+    </div>
+    <button class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/" class="<%= page==='home' ? 'active' : '' %>">Home</a>
+  <a href="/catalog" class="<%= page==='catalog' ? 'active' : '' %>">Catalog</a>
+  <a href="/about" class="<%= page==='about' ? 'active' : '' %>">About Us</a>
+  <a href="/contact" class="<%= page==='contact' ? 'active' : '' %>">Contact</a>
+  <a href="/contact" class="btn-quote" style="display:inline-block;margin-top:10px;">Get a Quote</a>
+</div>
+
+<% if (typeof success !== 'undefined' && success.length > 0) { %>
+<div class="flash-success"><i class="fas fa-check-circle"></i> <%= success[0] %></div>
+<% } %>
+<% if (typeof error !== 'undefined' && error.length > 0) { %>
+<div class="flash-error"><i class="fas fa-exclamation-circle"></i> <%= error[0] %></div>
+<% } %>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %> | Admin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Montserrat',sans-serif;background:#2e3092;color:#fff;min-height:100vh;padding:32px}
+    .container{max-width:700px;margin:0 auto}
+    .back-link{color:#a0a3c4;text-decoration:none;font-size:0.85rem;display:inline-flex;align-items:center;gap:8px;margin-bottom:24px}
+    .back-link:hover{color:#f5811e}
+    h1{font-size:1.5rem;font-weight:700;margin-bottom:28px;color:#fff}
+    .card{background:#252878;border-radius:12px;padding:28px}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .form-group{margin-bottom:18px}
+    label{display:block;color:#a0a3c4;font-size:0.78rem;font-weight:600;margin-bottom:6px;letter-spacing:0.5px}
+    input,select,textarea{width:100%;padding:11px 14px;background:#2e3092;border:1px solid #3d41a8;border-radius:8px;color:#fff;font-size:0.875rem;outline:none;font-family:inherit}
+    input:focus,select:focus,textarea:focus{border-color:#f5811e}
+    select option{background:#252878}
+    .checkbox-group{display:flex;align-items:center;gap:10px}
+    .checkbox-group input{width:auto}
+    .checkbox-group label{color:#fff;font-size:0.9rem;letter-spacing:0;font-weight:500;margin:0}
+    .img-preview{width:120px;height:120px;border-radius:8px;object-fit:cover;margin-top:10px;border:2px solid #3d41a8}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:8px;font-size:0.9rem;font-weight:600;cursor:pointer;text-decoration:none;border:none;transition:all 0.2s;font-family:inherit}
+    .btn-primary{background:#f5811e;color:#000}
+    .btn-primary:hover{background:#e0700f}
+    .btn-secondary{background:#3d41a8;color:#fff;margin-right:12px}
+    .btn-secondary:hover{background:#3d5270}
+    .form-actions{margin-top:24px;display:flex;align-items:center}
+    .hint{color:#a0a3c4;font-size:0.75rem;margin-top:4px}
+    h3{color:#f5811e;font-size:0.85rem;font-weight:700;letter-spacing:1px;margin:20px 0 14px;padding-bottom:8px;border-bottom:1px solid #3d41a8}
+    @media(max-width:600px){.form-row{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<div class="container">
+  <a href="/admin/dashboard" class="back-link"><i class="fas fa-arrow-left"></i> Back to Dashboard</a>
+  <h1><%= product ? 'Edit Product' : 'Add New Product' %></h1>
+
+  <div class="card">
+    <form action="<%= action %>" method="POST" enctype="multipart/form-data">
+      <div class="form-row">
+        <div class="form-group">
+          <label>PRODUCT NAME *</label>
+          <input type="text" name="name" value="<%= product ? product.name : '' %>" required placeholder="e.g. Crystal Trophy">
+        </div>
+        <div class="form-group">
+          <label>CATEGORY *</label>
+          <select name="category" required>
+            <option value="">Select category...</option>
+            <% const cats = ['AWARDS','APPAREL','OFFICE','TECH','DRINKWARE','OTHER']; %>
+            <% cats.forEach(c => { %>
+            <option value="<%= c %>" <%= product && product.category === c ? 'selected' : '' %>><%= c %></option>
+            <% }) %>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>MINIMUM ORDER QUANTITY (MOQ)</label>
+          <input type="number" name="moq" value="<%= product ? product.moq : 1 %>" min="1" placeholder="1">
+        </div>
+        <div class="form-group" style="display:flex;align-items:flex-end;padding-bottom:18px">
+          <div class="checkbox-group">
+            <input type="checkbox" name="featured" id="featured" <%= product && product.featured ? 'checked' : '' %>>
+            <label for="featured">Mark as Featured Product</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>DESCRIPTION *</label>
+        <textarea name="description" rows="4" required placeholder="Describe the product, its materials, use cases..."><%= product ? product.description : '' %></textarea>
+      </div>
+
+      <h3>PRODUCT DETAILS (Optional)</h3>
+      <div class="form-row">
+        <div class="form-group">
+          <label>DETAIL 1 KEY</label>
+          <input type="text" name="detail1Key" value="<%= product && Object.keys(product.details||{}).length > 0 ? Object.keys(product.details)[0] : '' %>" placeholder="e.g. Material">
+        </div>
+        <div class="form-group">
+          <label>DETAIL 1 VALUE</label>
+          <input type="text" name="detail1Val" value="<%= product && Object.values(product.details||{}).length > 0 ? Object.values(product.details)[0] : '' %>" placeholder="e.g. Bronze Finish">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>DETAIL 2 KEY</label>
+          <input type="text" name="detail2Key" value="<%= product && Object.keys(product.details||{}).length > 1 ? Object.keys(product.details)[1] : '' %>" placeholder="e.g. Size">
+        </div>
+        <div class="form-group">
+          <label>DETAIL 2 VALUE</label>
+          <input type="text" name="detail2Val" value="<%= product && Object.values(product.details||{}).length > 1 ? Object.values(product.details)[1] : '' %>" placeholder="e.g. Standard">
+        </div>
+      </div>
+
+      <h3>PRODUCT IMAGE</h3>
+      <div class="form-group">
+        <label>UPLOAD IMAGE (JPG, PNG, WEBP — Max 5MB)</label>
+        <input type="file" name="image" accept="image/*" onchange="previewImg(this)">
+        <p class="hint">Leave blank to keep existing image.</p>
+        <% if (product && product.image && product.image !== '/images/placeholder.jpg') { %>
+        <img src="<%= product.image %>" class="img-preview" id="imgPreview" alt="Current">
+        <% } else { %>
+        <img id="imgPreview" class="img-preview" style="display:none" alt="Preview">
+        <% } %>
+      </div>
+
+      <div class="form-actions">
+        <a href="/admin/dashboard" class="btn btn-secondary"><i class="fas fa-times"></i> Cancel</a>
+        <button type="submit" class="btn btn-primary">
+          <i class="fas fa-save"></i> <%= product ? 'Update Product' : 'Add Product' %>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+<script>
+function previewImg(input) {
+  const preview = document.getElementById('imgPreview');
+  if (input.files && input.files[0]) {
+    const reader = new FileReader();
+    reader.onload = e => { preview.src = e.target.result; preview.style.display = 'block'; };
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+</script>
+</body>
+</html>
